@@ -1,4 +1,5 @@
-name: Fetch advertising news
+on:
+  push:name: Fetch advertising news
 
 on:
   schedule:
