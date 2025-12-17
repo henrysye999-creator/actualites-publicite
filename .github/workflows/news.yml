@@ -1,0 +1,24 @@
+name: Fetch advertising news
+
+on:
+  schedule:
+    - cron: "0 8 * * *"  # Exécution quotidienne à 8h UTC
+
+jobs:
+  fetch-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: pip install requests openai
+
+      - name: Run script
+        run: python fetch_news.py
+
